@@ -1,0 +1,223 @@
+:root {
+    --primary: #4a6fa5;
+    --secondary: #166088;
+    --success: #2ec4b6;
+    --danger: #e71d36;
+    --light: #f6f8fa;
+    --dark: #011627;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: var(--secondary);
+    margin-top: 0;
+}
+
+.welcome-text {
+    text-align: center; 
+    color: #555;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light);
+}
+
+.timer-box {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--danger);
+}
+
+.timer-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    fill: var(--danger);
+}
+
+.progress {
+    font-size: 16px;
+    color: #666;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    background-color: var(--light);
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #edf2f7;
+    border-color: var(--primary);
+}
+
+.option-btn.selected {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+.controls {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+button.action-btn {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button.action-btn:hover {
+    background-color: var(--primary);
+}
+
+/* Estilo específico para el botón de enviar correo personal */
+#send-email-btn {
+    background-color: var(--success) !important;
+    color: white;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+#send-email-btn:hover {
+    filter: brightness(0.9);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.results-container {
+    text-align: center;
+}
+
+.score {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--secondary);
+    margin: 20px 0;
+}
+
+.feedback-message {
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.fb-low { background-color: #ffe5ec; color: var(--danger); }
+.fb-mid { background-color: #fefae0; color: #b7b7a4; }
+.fb-high { background-color: #e8f5e9; color: #2e7d32; }
+
+/* Estilo dinámico adaptativo para los estados de EmailJS */
+.mail-status-text {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic; 
+    color: #666; 
+    margin: 15px 0;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.restart-btn {
+    background-color: var(--primary) !important;
+}
+
+/* Oculta los componentes no deseados al momento de imprimir */
+@media print {
+    body { background: white; color: black; padding: 0; }
+    .quiz-container { box-shadow: none; max-width: 100%; padding: 0; }
+    .btn-group, .timer-box, #send-email-btn, .mail-status-text { display: none !important; }
+    .results-container { margin-top: 50px; }
+}

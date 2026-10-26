@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Números Enteros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <!-- PANTALLA 1: REGISTRO DE ESTUDIANTE -->
+        <div id="start-screen">
+            <h1>Evaluación de Números Enteros</h1>
+            <p class="welcome-text">Por favor, ingresa tus datos antes de comenzar el examen. Tienes 60 segundos por pregunta.</p>
+            <div class="input-group">
+                <label for="student-name">Nombre Completo del Alumno:</label>
+                <input type="text" id="student-name" placeholder="Ej. Juan Pérez" required>
+            </div>
+            <div class="controls">
+                <button class="action-btn" onclick="startQuiz()">Comenzar Examen</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA 2: JUEGO DE PREGUNTAS -->
+        <div id="quiz-screen" class="hidden">
+            <div class="header-info">
+                <div class="progress">Pregunta: <span id="current-q-num">1</span> / 10</div>
+                <div class="timer-box">
+                    <svg class="timer-icon" viewBox="0 0 24 24">
+                        <path d="M12 20c4.42 0 8-3.58 8-8s-3-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-18c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 5h-2v6h5v-2h-3V7z"/>
+                    </svg>
+                    <span id="timer-count">60</span>s
+                </div>
+            </div>
+
+            <div class="question" id="question-text">Texto de la pregunta</div>
+            <div class="options-container" id="options-box"></div>
+
+            <div class="controls">
+                <button class="action-btn" id="next-btn" onclick="nextQuestion()">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA 3: RESULTADOS -->
+        <div id="results-screen" class="hidden">
+            <div class="results-container">
+                <h1>Resultados de la Evaluación</h1>
+                <p><strong>Estudiante:</strong> <span id="res-student-name"></span></p>
+                <p>Has finalizado el banco de 10 preguntas sobre Números Enteros.</p>
+                
+                <div class="score" id="final-score">00 / 20</div>
+                <div id="feedback-box" class="feedback-message"></div>
+
+                <p id="mail-status" class="mail-status-text">Resultados listos para ser enviados.</p>
+
+                <div class="btn-group" style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                    <button class="action-btn" id="send-email-btn" onclick="triggerEmailSend()">
+                        ✉️ Enviar resultados a vcaballeromerino@gmail.com
+                    </button>
+                    
+                    <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
+                        <button class="action-btn" onclick="window.print()">Imprimir Nota / Guardar PDF</button>
+                        <button class="action-btn restart-btn" onclick="location.reload()">Reiniciar Examen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARGA SEGURA: Colocamos la librería abajo para evitar bloqueos del navegador -->
+   
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("9YDb8V8aHFA03FfJv"); // Tu clave pública inicializada de forma directa
+       })();
+    </script>
+    
+    <!-- Tu archivo de lógica del cuestionario -->
+    <script src="script.js?v=5"></script>
+    <!-- 1. IMPORTAR LA LIBRERÍA DE EMAILJS (ESTO ES LO QUE FALTABA) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- 2. INICIALIZAR TU CLAVE -->
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("9YDb8V8aHFA03FfJv"); // Tu clave pública inicializada de forma directa
+       })();
+    </script>
+    
+    <!-- 3. TU SCRIPT PRINCIPAL -->
+    <script src="script.js?v=5"></script>
+</body>
+</html>
+</body>
+</html>
